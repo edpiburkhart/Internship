@@ -1,0 +1,230 @@
+\ProvidesPackage{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{fontspec}
+\RequirePackage{polyglossia}
+\RequirePackage{csquotes}
+\RequirePackage{amsmath, amssymb, amsbsy}
+\RequirePackage{mathtools}
+\RequirePackage{siunitx}
+\RequirePackage{stmaryrd}
+\RequirePackage{dsfont}
+\RequirePackage{array}
+\RequirePackage{esvect}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{amsthm}
+\RequirePackage{pgfpages}
+\RequirePackage{hyperref}
+\RequirePackage[version=4]{mhchem}
+\RequirePackage{breqn}
+\RequirePackage{listings}
+\RequirePackage{esint}
+\RequirePackage{tabularx}
+\RequirePackage{multirow}
+\RequirePackage{enumitem}
+\RequirePackage{mathtools}
+\RequirePackage{booktabs}
+\RequirePackage{multicol}
+\RequirePackage{ltxtable}
+\RequirePackage{booktabs}
+\RequirePackage{setspace}
+\RequirePackage{ulem}
+\RequirePackage{cancel}
+\RequirePackage{xcolor}
+\RequirePackage[notransparent]{svg}
+\RequirePackage{unicode-math}
+\@ifclassloaded{beamer}{}{\RequirePackage[list=true]{subcaption}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Langue
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setdefaultlanguage{french}
+\MakeOuterQuote{"}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Dérivées / Intégrales
+\renewcommand\d{\mathrm d}
+\newcommand\dd{\mathop{}\,\mathrm d}
+\newcommand\deriv[2]{\frac{\d#1}{\d#2}}
+\newcommand\dderiv[2]{\frac{\d^2#1}{\d#2^2}}
+\newcommand\der[2]{\frac{\d#1}{\d#2}}
+\newcommand\dder[2]{\frac{\d^2#1}{\d#2^2}}
+\newcommand\dpar[2]{\frac{\partial#1}{\partial#2}}
+\newcommand\ddpar[2]{\frac{\partial^2#1}{\partial#2^2}}
+\newcommand\derp[2]{\frac{\partial#1}{\partial#2}}
+\newcommand\dderp[2]{\frac{\partial^2#1}{\partial#2^2}}
+\newcommand\dint{\int\displaylimits}
+\newcommand\doint{\oint\displaylimits}
+
+%%% Symboles
+\newcommand\bOmega{\boldsymbol\Omega}
+\newcommand\bepsilon{\boldsymbol\epsilon}
+\newcommand\btheta{\boldsymbol\theta}
+\newcommand\bsigma{\boldsymbol\sigma}
+\renewcommand\epsilon{\varepsilon}
+\renewcommand\C{\coulomb}
+\newcommand\e{\mathrm e}
+
+\newcommand\RR{\mathbb R}
+\newcommand\CC{\mathbb C}
+\newcommand\KK{\mathbb K}
+\newcommand\NN{\mathbb N}
+\newcommand\FF{\mathbb F}
+\newcommand\EE{\mathbb E}
+\newcommand\DD{\mathbb D}
+\newcommand\fF{\mathcal F}
+\newcommand\dD{\mathcal D}
+\newcommand\lL{\mathcal L}
+\newcommand\cC{\mathcal C}
+
+\newcommand\id{\mathbf 1}
+\newcommand\Id{\mathrm Id}
+
+%%% Exposant / Indice à gauche
+\newcommand\trans[1]{\vphantom{#1}^t#1}
+\newcommand\eul[1]{\vphantom{#1}^E#1}
+\newcommand\lag[1]{\vphantom{#1}^L#1}
+\newcommand\indL[2]{\vphantom{#2}_{#1}#2}
+\newcommand\expL[2]{\vphantom{#2}^{#1}#2}
+
+%%% Opérateurs mathématiques
+\newcommand\nor[1]{\left\lVert#1\right\lVert}
+\newcommand\peigne{\mathbin{\rotatebox[origin=c]{-90}{$\exists$}}}
+\newcommand\moy[1]{\left<#1\right>}
+\newcommand\tor[2]{\vphantom{\begin{array}c#2\end{array}}_{#1}\left|\begin{array}c#2\end{array}\right.}
+
+\DeclareMathOperator\grad{\uline{grad}}
+\DeclareMathOperator\ggrad{\uuline{grad}}
+\let\div\relax
+\DeclareMathOperator\div{\uline{div}}
+\DeclareMathOperator\rot{\uline{rot}}
+\DeclareMathOperator\Ker{Ker}
+\DeclareMathOperator\sign{sign}
+\DeclareMathOperator\tr{tr}
+\DeclareMathOperator\cotan{cotan}
+\DeclareMathOperator\cond{cond}
+\DeclareMathOperator\erf{erf}
+\DeclareMathOperator\erfc{erfc}
+
+%%% Vecteurs et Matrices
+\renewcommand\u[1]{\uline{#1}}
+\newcommand\uu[1]{\u{\u{#1}}}
+\newcommand\uuuu[1]{\uu{\uu{#1}}}
+\newcommand\ov[1]{\overline{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Paramétrage des packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Styles de théorèmes
+\theoremstyle{remark}
+\newtheorem{rem}{Remarque}
+\newtheorem*{rem*}{Remarque}
+\theoremstyle{definition}
+\newtheorem*{defi}{Définition}
+\newtheorem{ex}{Exemple}
+\newtheorem*{theo}{Théorème}
+
+%%% Listings (code)
+\lstset{numbers=left,
+    numberstyle=\tiny\color{gray}\ttfamily,
+    language=Python,
+    basicstyle=\scriptsize\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\itshape\color{gray},
+    stringstyle=\color{ForestGreen},
+    frame=single,
+    stepnumber=5,
+    showstringspaces=true,
+    backgroundcolor=\color{ultralightgray},
+    morekeywords={>>>, np, array, zeros, shape},
+    %breaklines=true,
+    %prebreak=\textbackslash,
+    alsoletter=>
+}
+
+%%% Tikz / PGF
+\usetikzlibrary{shapes}
+\pgfplotsset{compat=1.14}
+
+%%% SIUnitX
+\sisetup{
+    detect-all,
+    locale                  = FR,
+    list-final-separator    = {\text{~et~}},
+    list-pair-separator     = {\text{~et~}},
+    range-phrase            = {\text{~à~}},
+    retain-explicit-plus,
+    forbid-literal-units,
+    sticky-per,
+    inter-unit-product      = {.},
+    per-mode                = reciprocal-positive-first,
+    math-degree             = \text{\textdegree},
+    text-degree             = \textdegree,
+    separate-uncertainty,
+}
+\SendSettingsToPgf
+\DeclareSIUnit\met{met}
+
+%%% Arcs
+\DeclareFontFamily{OMX}{yhex}{}
+\DeclareFontShape{OMX}{yhex}{m}{n}{<->yhcmex10}{}
+\DeclareSymbolFont{yhlargesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{yhlargesymbols}{"F3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Mise en forme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setmainfont{IBM Plex Sans}
+
+\definecolor{ENSblue}{RGB}{0,119,139}
+\definecolor{ultralightgray}{gray}{.95}
+
+\@ifclassloaded{letter}{}{
+    \renewcommand\thesection{\Roman{section}}
+    \renewcommand\thesubsection{\thesection.\arabic{subsection}}
+    \renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+}
+
+\@ifclassloaded{beamer}{}{
+    \hypersetup{
+        pdftitle={\@title},
+        citecolor=ENSblue,
+        filecolor=ENSblue,
+        colorlinks=true,
+        linkcolor=ENSblue,
+        urlcolor=ENSblue
+    }
+
+    \setlist[itemize]{nosep}
+}
+
+\setcounter{secnumdepth}{3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Fonctions pgfplots
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\pgfmathdeclarefunction{erf}{1}{%
+  \begingroup
+    \pgfmathparse{#1 > 0 ? 1 : -1}%
+    \edef\sign{\pgfmathresult}%
+    \pgfmathparse{abs(#1)}%
+    \edef\x{\pgfmathresult}%
+    \pgfmathparse{1/(1+0.3275911*\x)}%
+    \edef\t{\pgfmathresult}%
+    \pgfmathparse{%
+      1 - (((((1.061405429*\t -1.453152027)*\t) + 1.421413741)*\t
+      -0.284496736)*\t + 0.254829592)*\t*exp(-(\x*\x))}%
+    \edef\y{\pgfmathresult}%
+    \pgfmathparse{(\sign)*\y}%
+    \pgfmath@smuggleone\pgfmathresult%
+  \endgroup
+}
+\makeatother
