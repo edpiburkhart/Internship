@@ -198,7 +198,33 @@ American Concrete Institute released a guide in 2001 \cite{aci}.
 \subsection{Standard methods}
 
 \subsubsection{JCI}
+The JCI guidelines focus mainly on cracking caused by the hydration of cement,
+which includes the volume change due to the temperature changes and due to
+autogenous shrinkage.
+
+A thermal cracking index is defined for cracking verifications:
+\begin{equation}
+  I_{cr} = \frac{f_t(t_e)}{\sigma_t(t_e)}
+\end{equation}
+Where $f_t$ is the tensile strength of the concrete and $\sigma_t$ is the
+principal tensile stress.
+
+In order for the cracking probability to be under \SI5\percent, a limit is
+defined for the thermal cracking index:
+\begin{equation}
+  I_{lim} = 1.85
+\end{equation}
+
+In order to obtain accurate cracking indexes, the JCI recommends the use of
+three-dimmensionnal finite element method.
+
 \subsubsection{ACI}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.3\linewidth]{aci}
+  \caption{Cracking of concrete du to drying shrinkage \cite{aci}.}\label{aci}
+\end{figure}
 
 \subsection[Reliability of standard methods for evaluating the early-age
 cracking risk of thermal-shrinkage origin in concrete walls]
