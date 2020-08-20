@@ -1,21 +1,38 @@
-\documentclass{report}
+\documentclass{memoir}
 \usepackage{cours}
 
 \graphicspath{{fig/}}
 \linespread{1.2}
 
+\pretitle{\begin{center}\huge\bfseries}
 \title{Optimization of simplified calculation methods for early age cracking assessment}
-\author{Edgar Pierre BURKHART}
+\posttitle{\end{center}}
+\preauthor{\begin{center}Intership report accomplished at NTNU under the direction of Pr.
+Terje Kanstad by
+
+\LARGE\bfseries}
+\author{Edgar P. BURKHART}
+\postauthor{\end{center}}
 \date{2020}
+
+\chapterstyle{dash}
 
 \bibliography{bib}
 
 \begin{document}
 
-\maketitle
+\begin{titlingpage}
+  \maketitle
+\end{titlingpage}
 
+\frontmatter
 \tableofcontents
+\listoffigures
+\listoftables
 %%%
+\mainmatter
+
+\chapter{Introduction}
 
 
 \chapter{Literrature review}
@@ -42,7 +59,9 @@ restrained concrete regarding various parameters.
 An experimental study was conducted using a uniaxial restrained shrinkage test.
 A combination of restrained and unrestrained specimens was used to extract
 creep from the results. According to the authors, the difference in strain
-between free shrinkage and restrained tests was the creep strain, as seen in
+between free shrinkage and restrained tests was the creep strain, since the
+resulting strain is a combination of elastic strain, shrinkage strain and creep
+strain, as seen in
 \autoref{aci1}. The experiment's goal was to determine a number of properties
 of concrete at early age.
 
@@ -110,8 +129,9 @@ several components play a role in the forming of cracks in concrete at
 early-age. The study highlights the crucial role of stress rate and history on
 the cracking stress and time. It also displays the importance of the actual
 tensile strength, which is found to be lower than the usual static tensile
-strength. Creep also has a major impact, and should be considered in cracking
-studies. Curing practices also seem to have a notable impact on cracking.
+strength of the hardened concrete. Creep also has a major impact, and should be
+considered in cracking studies. Curing practices also seem to have a notable
+impact on cracking.
 
 \section[State-of-the-Art Report on Control of Cracking in Early Age Concrete]
 {State-of-the-Art Report on Control of Cracking in Early Age Concrete \cite{soa}}
@@ -215,7 +235,7 @@ defined for the thermal cracking index:
   I_{lim} = 1.85
 \end{equation}
 
-In order to obtain accurate cracking indexes, the JCI recommends the use of
+In order to cobtain accurate cracking indexes, the JCI recommends the use of
 three-dimmensionnal finite element method.
 
 \subsubsection{ACI}
@@ -230,7 +250,25 @@ three-dimmensionnal finite element method.
 cracking risk of thermal-shrinkage origin in concrete walls]
 {Reliability of standard methods for evaluating the early-age
 cracking risk of thermal-shrinkage origin in concrete walls \cite{rsm}}
+A study was conducted in 2019 on the reliability of existing guidelines
+regarding the cracking risk in walls.
+
+\subsubsection{Methods}
+The study focused on validating the standard methods on two example walls,
+which the researchers considered sufficiently different to allow for reliable
+validation of the methods. Several parts of the guidelines were studied. Crack
+width and spacing as well as temperature calculations are present but the focus
+here will be rather on cracking risk.
+
+\subsubsection{Results}
+The findings of the study show that cracking risk was accurately predicted for
+all methods, although this study does not primarily focus on the cracking risk
+aspect of standard guidelines. In the studied scenarios, a remarkable remark is
+that at early-age, shrinkage only has a minor effect compared to the thermal
+effects that are happening simultaneously, with the resulting strain being
+under \SI3\percent of the termal strains.
 
 %%%
+\backmatter
 \printbibliography
 \end{document}
