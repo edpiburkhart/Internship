@@ -350,6 +350,14 @@ to compare the results for high performance concrete but this could not be done
 in this internship due to time constraints.
 
 The material properties will be used as described in \autoref{tab:ceos}.
+The following simplifications will be made as to provide a first approach which
+should be enriched in the future:
+\begin{itemize}
+  \item creep will be ignored,
+  \item the external temperature will be considered static over time.
+\end{itemize}
+This will allow for fewer parameters to be introduced as to simplify the
+comparison between the methods.
 
 \begin{figure}
   \centering
@@ -381,7 +389,23 @@ cracking risk in 2019 \cite{phd}. A thermal model was also implemented in this
 code which was needed for the Eurocode~2 calculations.
 
 The Eurocode~2's method was then added in order to compare its results to both
-the rheological model and the expected results from the CEOS.fr benchmark.
+the rheological model and the expected results from the CEOS.fr benchmark. The
+Eurocode's method consists in the calculation of several abstract parameters
+allowing for the determination of the maximal tensile stress in the material
+during the early-age period.
+
+The code will produce a graph displaying the tensile strength over time, as
+well as the tensile stresses obtained with both methods.
+
+\section{Results}
+The graph described in the previous paragraph can be seen in \autoref{res}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{result}
+  \caption{Stresses in the V1 wall from Civaux \cite{ceos} at early-age
+  calculated using different methods.}\label{res}
+\end{figure}
 
 %%%
 \backmatter
