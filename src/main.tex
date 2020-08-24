@@ -36,7 +36,7 @@ Terje Kanstad by
 
 \chapter{Acknowledgements}
 First of all, I want to thank the people who supervised my work during this
-Internship --- Pr. Terje Kanstad from NTNU and Pr. Farid Benboudjema from ENS
+Internship --- Pr. Terje Kanstad from NTNU and Dr. Farid Benboudjema from ENS
 Paris-Saclay --- thanks to whom I have been able to familiarize with the
 research work implied by working on such a project as the Eurocode~2.
 
@@ -399,6 +399,17 @@ well as the tensile stresses obtained with both methods.
 
 \section{Results}
 The graph described in the previous paragraph can be seen in \autoref{res}.
+It can be observed that the curves obtained with the rheological model and with
+the Eurocode~2 method have a very similar shape, displaying a sharp increase in
+tensile stress after a few hours, and a later stabilization towards a maximal
+value.
+
+From these results, the Eurocode's method seems to overestimate the cracking
+risk, which is to be expected since the Eurocode is supposed to factor in
+security margins.
+
+The obtained results also show that cracking should be observed according to
+both calculation methods, which is confirmed by the experimental results.
 
 \begin{figure}
   \centering
@@ -407,7 +418,32 @@ The graph described in the previous paragraph can be seen in \autoref{res}.
   calculated using different methods.}\label{res}
 \end{figure}
 
+\section{Conclusion}
+From the simplified CEOS.fr benchmark implemented during this internship, the
+Eurocode seems to be able to predict accurately cracking in the example
+studied. Nonetheless, the Eurocode seems to substantially overestimate the
+risks, for reasons that could be security margins. In any way, the prediction
+model seems to produce accurate evolution profiles for tensile stress in
+concrete structures.
+
 %%%
 \backmatter
+\chapter{Conclusion}
+Cracking in concrete structures is a wide subject. Cracking causes are
+numerous, and its consequences can be catastrophic. This makes the prediction
+of cracking in concrete structures a crucial yet complicated matter in civil
+engineering.
+
+The Eurocode~2 aims to provide guidelines for cracking control, but as earlier
+research has shown, not all the causes of cracking are taken into account in
+its methods. Despite this issue, earlier research and this internship have
+shown that the Eurocode~2's recommendations provide usable information on
+cracking risk, although its accuracy in all circumstances should still be studied.
+
+As the study in this internship has only been focused on a single structure and
+a single concrete type, further research is needed to evaluate the accuracy of
+these methods in different scenarios, and when considering more precise models,
+by considering the presence of creep for instance.
+
 \printbibliography
 \end{document}
