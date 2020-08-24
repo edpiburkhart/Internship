@@ -335,8 +335,49 @@ early-age cracking assessment. This method will be compared to a simplified
 Burgers model \cite{soa} of concrete elements. In order to simplify the
 model, creep will be ignored in a first approach.
 
-\section{Hypothesis}
+\section{Studied project}
+The project that will be studied using different approaches was taken from the
+CEOS.fr benchmarks for concrete structures under thermohydric load
+\cite{ceos}. The first case study from this benchmark will be used. The study
+is focused on a wall from an experimental wall as described in \autoref{ceos}.
+In the context of this study, only the first part of the wall will be
+considered, with an ordinary concrete being considered. It would be interesting
+to compare the results for high performance concrete but this could not be done
+in this internship due to time constraints.
 
+The material properties will be used as described in \autoref{tab:ceos}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{ceos}
+  \caption{Reinforcements of the V1 wall from Civaux \cite{ceos}.}\label{ceos}
+\end{figure}
+
+\begin{table}
+  \centering
+  \begin{tabular}{ccc}
+    \toprule
+    \bfseries Characteristic & \bfseries Value & \bfseries Unit \\
+    \midrule
+    Conductivity & \num{2.8} & \si{\watt\per\m\kelvin} \\
+    Heat capacity & \num{950} & \si{\joule\per\kg\kelvin} \\
+    Young modulus & \num{33.7} & \si{\giga\Pa} \\
+    Compressive strength & \num{40.2} & \si\MPa \\
+    Tensile strength & \num{3.7} & \si\MPa \\
+    \bottomrule
+  \end{tabular}
+  \caption{Material properties for the CEOS.fr benchmark
+  \cite{ceos}.}\label{tab:ceos}
+\end{table}
+
+\section{Implementation}
+A model of the studied structure will be implemented in Matlab. An initial
+rheological was implemented based on the code from previous research on
+cracking risk in 2019 \cite{phd}. A thermal model was also implemented in this
+code which was needed for the Eurocode~2 calculations.
+
+The Eurocode~2's method was then added in order to compare its results to both
+the rheological model and the expected results from the CEOS.fr benchmark.
 
 %%%
 \backmatter
